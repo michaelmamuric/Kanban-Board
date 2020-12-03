@@ -1,0 +1,12 @@
+.AddForm {
+    padding-top: 15px;
+    display: flex;
+    width: 75%;
+    margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+    .AddForm {
+        width: 25%;
+    }
+}

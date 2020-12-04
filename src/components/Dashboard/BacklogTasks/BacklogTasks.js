@@ -11,7 +11,7 @@ const BacklogTasks = (props) => {
     const { backlogTasks, deleteFromBacklog, moveToInProgress } = props;
 
     return (
-        <ListGroup >
+        <ListGroup className={classes.ListGroupMobile}>
         {
             backlogTasks.map((task, index) => {
                 return (

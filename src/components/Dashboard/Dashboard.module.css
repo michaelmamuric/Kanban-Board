@@ -2,8 +2,49 @@
     display: flex !important;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .Complete {
     text-decoration:line-through;
+}
+
+.Card {
+    display: none !important;
+}
+
+/* Mobile-only CSS start */
+
+.MobileOnly {
+    display: flex !important;
+    justify-content: center;
+}
+
+.Tabs {
+    width: 100%
+}
+
+.ListGroupMobile {
+    width: 80vw;
+    padding-top: 20px;
+}
+
+/* Mobile-only CSS end*/
+
+
+@media only screen and (min-width: 600px) {
+    .Card {
+        display:block !important;
+        height: 75vh;
+        overflow: auto;
+    }
+
+    .MobileOnly {
+        display:none !important;
+    }
+
+    .ListGroupMobile {
+        width: inherit;
+        padding-top: 0;
+    }
 }

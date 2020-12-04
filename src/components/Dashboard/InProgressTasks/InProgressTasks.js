@@ -8,7 +8,7 @@ import classes from '../Dashboard.module.css';
 const InProgressTasks = (props) => {
 
     // Destructure props
-    const { inProgressTasks } = props;
+    const { inProgressTasks, moveToDone } = props;
 
     return (
         <ListGroup >
@@ -22,7 +22,7 @@ const InProgressTasks = (props) => {
                                 Action
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item>Move to Done</Dropdown.Item>
+                                <Dropdown.Item onClick={() => moveToDone(index)}>Move to Done</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </ListGroup.Item>
@@ -39,11 +39,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-/*
+
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteFromBacklog: (index) => dispatch(actions.deleteFromBacklog(index))
+        moveToDone: (index) => dispatch(actions.moveToDone(index))
     }
-}*/
+}
 
-export default connect(mapStateToProps, null)(InProgressTasks);
+export default connect(mapStateToProps, mapDispatchToProps)(InProgressTasks);

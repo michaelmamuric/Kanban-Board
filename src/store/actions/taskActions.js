@@ -20,3 +20,17 @@ export const moveToInProgress = (origIndex) => {
         origIndex
     }
 }
+
+export const moveToDone = (origIndex) => {
+    return {
+        type: actions.MOVE_TO_DONE,
+        origIndex
+    }
+}
+
+export const deleteFromDone = (index) => {
+    return {
+        type: actions.DELETE_FROM_DONE,
+        index
+    }
+}

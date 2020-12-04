@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actions';
 
 const initialState = {
     backlogTasks: [],
-    inProgressTasks: []
+    inProgressTasks: [],
+    completedTasks: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,6 +26,21 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 inProgressTasks: state.inProgressTasks.concat(state.backlogTasks[action.origIndex]),
                 backlogTasks: state.backlogTasks.filter((_, index) => index !== action.origIndex)
+            }
+        }
+        // From In Progress to Done
+        case actionTypes.MOVE_TO_DONE: {
+            return {
+                ...state,
+                completedTasks: state.completedTasks.concat(state.inProgressTasks[action.origIndex]),
+                inProgressTasks: state.inProgressTasks.filter((_, index) => index !== action.origIndex)
+            }
+        }
+        // Delete from Completed List
+        case actionTypes.DELETE_FROM_DONE: {
+            return {
+                ...state,
+                completedTasks: state.completedTasks.filter((_, index) => index !== action.index)
             }
         }
         default:

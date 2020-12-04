@@ -1,5 +1,7 @@
 export {
     addTask,
     deleteFromBacklog,
-    moveToInProgress
+    moveToInProgress,
+    moveToDone,
+    deleteFromDone
 } from './taskActions';

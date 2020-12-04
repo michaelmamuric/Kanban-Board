@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import BacklogTasks from './BacklogTasks/BacklogTasks';
 import InProgressTasks from './InProgressTasks/InProgressTasks';
+import CompletedTasks from './CompletedTasks/CompletedTasks';
 
 const Dashboard = (props) => {
     return (
@@ -30,6 +31,7 @@ const Dashboard = (props) => {
                     <Card>
                         <Card.Body>
                             <Card.Title>Completed Tasks</Card.Title>
+                            <CompletedTasks />
                         </Card.Body>
                     </Card>
                 </Col>

@@ -4,8 +4,8 @@ import classes from './MenuBar.module.css';
 
 const MenuBar = (props) => {
     return (
-        <Navbar className={classes.NavBg}>
-            <Navbar.Brand href="#" className={classes.NavBrand}>Productivity App</Navbar.Brand>
+        <Navbar className={classes.NavBg} sticky="top">
+            <Navbar.Brand href="/" className={classes.NavBrand}>Kanban Board</Navbar.Brand>
         </Navbar>
     )
 };

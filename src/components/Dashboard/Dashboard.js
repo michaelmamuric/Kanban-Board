@@ -18,7 +18,7 @@ const Dashboard = (props) => {
                     <Card className={classes.Card}>
                         <Card.Body>
                             <Card.Title>Backlog</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Tasks that are not yet completed.</Card.Subtitle>
+                            <Card.Subtitle className="mb-2 text-muted">Tasks that are yet to be completed.</Card.Subtitle>
                             <BacklogTasks />
                         </Card.Body>
                     </Card>

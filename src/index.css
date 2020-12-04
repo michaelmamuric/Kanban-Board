@@ -6,3 +6,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* For use of React Transition Group */
+.Task-appear {
+  opacity: 0;
+}
+
+.Task-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.Task-enter {
+  opacity: 0;
+}
+
+.Task-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.Task-exit {
+  opacity: 1;
+}
+
+.Task-exit-active {
+  animation: deleteTask 1s ease-in;
+}
+
+@keyframes deleteTask {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+      opacity: 0.8;
+      transform: translateY(50%);
+  }
+
+  100% {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+}

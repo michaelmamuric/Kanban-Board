@@ -5,6 +5,7 @@ import { TrashFill } from 'react-bootstrap-icons';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Empty from '../Empty/Empty';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classes from '../Dashboard.module.css';
 
 const CompletedTasks = (props) => {
@@ -19,20 +20,24 @@ const CompletedTasks = (props) => {
     if(completedTasks.length > 0) {
         element = (
             <ListGroup className={classes.ListGroupMobile}>
+            <TransitionGroup>
             {
                 completedTasks.map((task, index) => {
                     return (
-                        <ListGroup.Item key={index} className={classes.ListGroup}>
-                            <div className={classes.Complete}>
-                                {task}
-                            </div>
-                            <Button variant="success" onClick={() => deleteFromDone(index)}> 
-                                <TrashFill size={18} />
-                            </Button>
-                        </ListGroup.Item>
+                        <CSSTransition appear key={index} timeout={1000} classNames="Task">
+                            <ListGroup.Item key={index} className={classes.ListGroup}>
+                                <div className={classes.Complete}>
+                                    {task}
+                                </div>
+                                <Button variant="success" onClick={() => deleteFromDone(index)}> 
+                                    <TrashFill size={18} />
+                                </Button>
+                            </ListGroup.Item>
+                        </CSSTransition>
                     );
                 })
             }
+            </TransitionGroup>
             </ListGroup> 
         );
     }

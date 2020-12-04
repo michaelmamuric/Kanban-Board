@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListCheck } from 'react-bootstrap-icons';
+import { CardChecklist } from 'react-bootstrap-icons';
 
 // CSS in JS
 const EmptyCSS = {
@@ -13,7 +13,7 @@ const EmptyCSS = {
 const Empty = () => {
     return (
         <div style={EmptyCSS}>
-            <ListCheck size={100} />
+            <CardChecklist size={100} />
             <h5>No tasks found</h5>
         </div>
     )

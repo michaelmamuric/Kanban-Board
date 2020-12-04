@@ -4,6 +4,7 @@ import * as actions from '../../../store/actions/index';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Empty from '../Empty/Empty';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classes from '../Dashboard.module.css';
 
 const InProgressTasks = (props) => {
@@ -18,23 +19,27 @@ const InProgressTasks = (props) => {
     if(inProgressTasks.length > 0) {
         element = (
             <ListGroup className={classes.ListGroupMobile}>
-            {
-                inProgressTasks.map((task, index) => {
-                    return (
-                        <ListGroup.Item key={index} className={classes.ListGroup}>
-                            {task}
-                            <Dropdown>
-                                <Dropdown.Toggle variant="success">
-                                    Action
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item onClick={() => moveToDone(index)}>Move to Done</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </ListGroup.Item>
-                    );
-                })
-            }
+                <TransitionGroup>
+                {
+                    inProgressTasks.map((task, index) => {
+                        return (
+                            <CSSTransition appear key={index} timeout={1000} classNames="Task">
+                                <ListGroup.Item key={index} className={classes.ListGroup}>
+                                    {task}
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="success">
+                                            Action
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item onClick={() => moveToDone(index)}>Move to Done</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </ListGroup.Item>
+                            </CSSTransition>
+                        );
+                    })
+                }
+                </TransitionGroup>
             </ListGroup>
         );
     }

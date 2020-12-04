@@ -1,5 +1,6 @@
 .AddForm {
     padding-top: 15px;
+    padding-bottom: 5px;
     display: flex;
     width: 95%;
     margin: auto;

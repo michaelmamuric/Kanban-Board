@@ -6,6 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 import MenuBar from './components/MenuBar/MenuBar';
 import AddBar from './components/AddBar/AddBar';
 import Dashboard from './components/Dashboard/Dashboard';
+import Footer from './components/Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
         </Col>
       </Row>
     </Container>
+    <Footer />
     </>
   );
 }

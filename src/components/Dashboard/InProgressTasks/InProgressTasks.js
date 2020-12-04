@@ -11,7 +11,7 @@ const InProgressTasks = (props) => {
     const { inProgressTasks, moveToDone } = props;
 
     return (
-        <ListGroup >
+        <ListGroup className={classes.ListGroupMobile}>
         {
             inProgressTasks.map((task, index) => {
                 return (

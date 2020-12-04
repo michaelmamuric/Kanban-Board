@@ -40,18 +40,20 @@ const Dashboard = (props) => {
                 </Col>
             </Row>
             {/* Only for mobile devices */}
-            <Row className={classes.MobileOnly} xs={12}>
-                <Tabs defaultActiveKey="backlog" className={classes.Tabs}>
-                    <Tab eventKey="backlog" title="Backlog">
-                        <BacklogTasks />
-                    </Tab>
-                    <Tab eventKey="inProgress" title="In Progress">
-                        <InProgressTasks />
-                    </Tab>
-                    <Tab eventKey="completed" title="Completed">
-                        <CompletedTasks />
-                    </Tab>
-                </Tabs>
+            <Row className={classes.MobileOnly}>
+                <Col xs={12}>
+                    <Tabs defaultActiveKey="backlog" className={classes.Tabs}>
+                        <Tab eventKey="backlog" title="Backlog">
+                            <BacklogTasks />
+                        </Tab>
+                        <Tab eventKey="inProgress" title="In Progress">
+                            <InProgressTasks />
+                        </Tab>
+                        <Tab eventKey="completed" title="Completed">
+                            <CompletedTasks />
+                        </Tab>
+                    </Tabs>
+                </Col>
             </Row>
         </Container>
     );

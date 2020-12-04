@@ -27,6 +27,7 @@ const App = () => {
     <>
     <MenuBar />
     {
+      /* Display Alert if "cookie" isn't set yet, and if Alert has not been dismissed */
       (displayAlert && alert) &&
       <Alert variant="success" onClose={() => setAlert(false)} dismissible>
         Notice: This app uses cookies to manage data locally. Nothing is stored in the server.

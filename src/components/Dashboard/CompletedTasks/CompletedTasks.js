@@ -12,7 +12,7 @@ const CompletedTasks = (props) => {
     const { completedTasks, deleteFromDone } = props;
 
     return (
-        <ListGroup>
+        <ListGroup className={classes.ListGroupMobile}>
         {
             completedTasks.map((task, index) => {
                 return (

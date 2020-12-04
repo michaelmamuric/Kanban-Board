@@ -4,6 +4,7 @@ import * as actions from '../../../store/actions/index';
 import { TrashFill } from 'react-bootstrap-icons';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import Empty from '../Empty/Empty';
 import classes from '../Dashboard.module.css';
 
 const CompletedTasks = (props) => {
@@ -11,24 +12,32 @@ const CompletedTasks = (props) => {
     // Destructure props
     const { completedTasks, deleteFromDone } = props;
 
-    return (
-        <ListGroup className={classes.ListGroupMobile}>
-        {
-            completedTasks.map((task, index) => {
-                return (
-                    <ListGroup.Item key={index} className={classes.ListGroup}>
-                        <div className={classes.Complete}>
-                            {task}
-                        </div>
-                        <Button variant="success" onClick={() => deleteFromDone(index)}> 
-                            <TrashFill size={18} />
-                        </Button>
-                    </ListGroup.Item>
-                );
-            })
-        }
-        </ListGroup>        
-    )
+    // Default element to render
+    let element = <Empty />;
+
+    // Render when at least one task is found
+    if(completedTasks.length > 0) {
+        element = (
+            <ListGroup className={classes.ListGroupMobile}>
+            {
+                completedTasks.map((task, index) => {
+                    return (
+                        <ListGroup.Item key={index} className={classes.ListGroup}>
+                            <div className={classes.Complete}>
+                                {task}
+                            </div>
+                            <Button variant="success" onClick={() => deleteFromDone(index)}> 
+                                <TrashFill size={18} />
+                            </Button>
+                        </ListGroup.Item>
+                    );
+                })
+            }
+            </ListGroup> 
+        );
+    }
+
+    return element;
 }
 
 const mapStateToProps = (state) => {

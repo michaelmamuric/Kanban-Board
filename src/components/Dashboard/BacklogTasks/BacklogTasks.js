@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Empty from '../Empty/Empty'
 import classes from '../Dashboard.module.css';
 
 const BacklogTasks = (props) => {
@@ -10,28 +11,36 @@ const BacklogTasks = (props) => {
     // Destructure props
     const { backlogTasks, deleteFromBacklog, moveToInProgress } = props;
 
-    return (
-        <ListGroup className={classes.ListGroupMobile}>
-        {
-            backlogTasks.map((task, index) => {
-                return (
-                    <ListGroup.Item key={index} className={classes.ListGroup}>
-                        {task}
-                        <Dropdown>
-                            <Dropdown.Toggle variant="success">
-                                Action
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => moveToInProgress(index)}>Move to In Progress</Dropdown.Item>
-                                <Dropdown.Item onClick={() => deleteFromBacklog(index)}>Delete</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </ListGroup.Item>
-                );
-            })
-        }
-        </ListGroup>        
-    )
+    // Default element to render
+    let element = <Empty />;
+
+    // Render when at least one task is found
+    if(backlogTasks.length > 0) {
+        element = (
+            <ListGroup className={classes.ListGroupMobile}>
+            {
+                backlogTasks.map((task, index) => {
+                    return (
+                        <ListGroup.Item key={index} className={classes.ListGroup}>
+                            {task}
+                            <Dropdown>
+                                <Dropdown.Toggle variant="success">
+                                    Action
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item onClick={() => moveToInProgress(index)}>Move to In Progress</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => deleteFromBacklog(index)}>Delete</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </ListGroup.Item>
+                    );
+                })
+            }
+            </ListGroup>
+        );
+    }
+
+    return element;
 }
 
 const mapStateToProps = (state) => {

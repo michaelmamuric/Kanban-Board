@@ -17,7 +17,8 @@ const Dashboard = (props) => {
                 <Col xs={12} sm={4}>
                     <Card className={classes.Card}>
                         <Card.Body>
-                            <Card.Title>Backlog Tasks</Card.Title>
+                            <Card.Title>Backlog</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Tasks that are not yet completed.</Card.Subtitle>
                             <BacklogTasks />
                         </Card.Body>
                     </Card>
@@ -25,7 +26,8 @@ const Dashboard = (props) => {
                 <Col xs={12} sm={4}>
                     <Card className={classes.Card}>
                         <Card.Body>
-                            <Card.Title>In Progress Tasks</Card.Title>
+                            <Card.Title>In Progress</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Tasks that are currently being completed.</Card.Subtitle>
                             <InProgressTasks />
                         </Card.Body>
                     </Card>
@@ -33,7 +35,8 @@ const Dashboard = (props) => {
                 <Col xs={12} sm={4}>
                     <Card className={classes.Card}>
                         <Card.Body>
-                            <Card.Title>Completed Tasks</Card.Title>
+                            <Card.Title>Done</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Tasks that are completed. Good job!</Card.Subtitle>
                             <CompletedTasks />
                         </Card.Body>
                     </Card>
@@ -49,7 +52,7 @@ const Dashboard = (props) => {
                         <Tab eventKey="inProgress" title="In Progress">
                             <InProgressTasks />
                         </Tab>
-                        <Tab eventKey="completed" title="Completed">
+                        <Tab eventKey="completed" title="Done">
                             <CompletedTasks />
                         </Tab>
                     </Tabs>

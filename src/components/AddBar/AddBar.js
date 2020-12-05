@@ -14,6 +14,7 @@ const AddBar = (props) => {
     const [task, setTask] = useState('');
     const ref = useRef();
 
+    // Handler when form is submitted
     const onSubmitHandler = (event) => {
         event.preventDefault();
 

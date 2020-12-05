@@ -9,7 +9,7 @@ It organizes tasks into three categories:
 * **In Progress** - Tasks that are currently being completed.
 * **Done** - Tasks that are completed.
 
-Some techologies used for this project:
+Some technologies used for this project:
 * [Redux](https://redux.js.org/)
 * [Redux Persist](https://www.npmjs.com/package/redux-persist)
 * [React Bootstrap](https://react-bootstrap.github.io/)
